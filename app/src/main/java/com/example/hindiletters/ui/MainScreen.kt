@@ -31,6 +31,9 @@ import com.example.hindiletters.ui.theme.HindiLettersTheme
 
  val randomHindiLetter= generateRandomHindiLetter()
 val randomHindiLetter1= generateRandomHindiLetter()
+
+val randomHindiLetters89 = generateRandomHindiLettersList(4)
+
 @Composable
 fun Navigation() {
     val navController= rememberNavController()
@@ -89,7 +92,7 @@ fun Screen(navController: NavController) {
                     }, "अ",Color.Green, )
 
                 Spacer(modifier = Modifier.height(20.dp))
-             BtnClr(text = randomHindiLetter)
+             BtnClr(text = randomHindiLetters89)
               //  AnsButton1(animationState = animationState.value, color = Color(0xFF858182),"ऊ")
                    Spacer(modifier = Modifier.height(20.dp))
                 BtnClr(text = randomHindiLetter1)
