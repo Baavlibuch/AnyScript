@@ -44,10 +44,10 @@ fun Navigation() {
             Screen3(navController = navController)
         }
         composable(Screen.FourthScreen.route){
-            Screen3(navController = navController)
+            Screen4(navController = navController)
         }
         composable(Screen.FifthScreen.route){
-            Screen3(navController = navController)
+            Screen5(navController = navController)
         }
     }
     

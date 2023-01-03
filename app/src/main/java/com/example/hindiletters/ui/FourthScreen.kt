@@ -49,7 +49,7 @@ fun Screen4(navController: NavController) {
     Column(modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
-        ProgressBar(navController = navController,"fifth_screen",0.7f,3)
+        ProgressBar(navController = navController,"fifth_screen",0.1f,1)
     }
 }
 

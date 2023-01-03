@@ -49,6 +49,6 @@ fun Screen2(navController: NavController) {
     Column(modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
-        ProgressBar(navController=navController,"third_screen",0.4f,2)
+        ProgressBar(navController=navController,"third_screen",0.1f,1)
     }
 }
