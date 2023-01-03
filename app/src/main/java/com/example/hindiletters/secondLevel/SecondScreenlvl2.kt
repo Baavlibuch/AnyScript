@@ -1,4 +1,4 @@
-package com.example.hindiletters.ui
+package com.example.hindiletters.secondLevel
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.*
@@ -10,10 +10,10 @@ import androidx.navigation.NavController
 import com.example.hindiletters.R
 import com.example.hindiletters.ui.*
 
-val randomHindiLetter4= generateRandomHindiLetter()
-val randomHindiLetter5= generateRandomHindiLetter()
+val randomHindiLetter1_lvl2= generateRandomHindiLetter2()
+val randomHindiLetter2_lvl2= generateRandomHindiLetter2()
 @Composable
-fun Screen2(navController: NavController) {
+fun SecondScreen2(navController: NavController) {
     val animationState = remember { mutableStateOf(false) }
     var visible by remember { mutableStateOf(false) }
     BoxWithConstraints(contentAlignment = Alignment.TopStart,) {
@@ -32,15 +32,15 @@ fun Screen2(navController: NavController) {
                 .padding(12.dp),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally) {
-                BtnClr(text = randomHindiLetter5)
+                BtnClr(text = randomHindiLetter1_lvl2)
                 Spacer(modifier = Modifier.height(20.dp))
                 AnsButton(animationState =animationState.value,
                     onToggleAnimationState =
                     {animationState.value = !animationState.value
                         visible = !visible
-                    },"ट",Color.Green)
+                    },"ऋ",Color.Green)
                 Spacer(modifier = Modifier.height(20.dp))
-               BtnClr(text = randomHindiLetter4)
+               BtnClr(text = randomHindiLetter2_lvl2)
                 Spacer(modifier = Modifier.height(50.dp))
                 Gifts(isGift = animationState.value,visible, R.drawable.giftbox)
             }
@@ -49,6 +49,6 @@ fun Screen2(navController: NavController) {
     Column(modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
-        ProgressBar(navController=navController,"third_screen",0.1f,1)
+        ProgressBar(navController=navController,"main_screen",0.5f,2)
     }
 }

@@ -40,7 +40,7 @@ fun Screen3(navController: NavController) {
                     onToggleAnimationState =
                     {animationState.value = !animationState.value
                         visible = !visible
-                    },"ऌ", Color.Green)
+                    },"ठ", Color.Green)
                 Spacer(modifier = Modifier.height(50.dp))
                 Gifts(isGift = animationState.value, visible = visible,R.drawable.giftbox)
             }

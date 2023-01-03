@@ -40,7 +40,7 @@ fun Screen5(navController: NavController) {
                     onToggleAnimationState =
                     {animationState.value = !animationState.value
                         visible = !visible
-                    },"ऌ", Color.Green)
+                    },"ड", Color.Green)
                 Spacer(modifier = Modifier.height(50.dp))
                 Gifts(isGift = animationState.value, visible = visible,R.drawable.giftbox)
             }
@@ -49,7 +49,7 @@ fun Screen5(navController: NavController) {
     Column(modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
-        ProgressBar(navController = navController,"fifth_screen",0.1f,1)
+        ProgressBar(navController = navController,"lvl2_first_screen",0.1f,1)
     }
 }
 

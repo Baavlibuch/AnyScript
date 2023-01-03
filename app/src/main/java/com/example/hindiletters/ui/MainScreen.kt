@@ -26,6 +26,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.hindiletters.R
+import com.example.hindiletters.secondLevel.SecondScreen2
 import com.example.hindiletters.ui.theme.HindiLettersTheme
 
  val randomHindiLetter= generateRandomHindiLetter()
@@ -48,6 +49,9 @@ fun Navigation() {
         }
         composable(Screen.FifthScreen.route){
             Screen5(navController = navController)
+        }
+        composable(Screen.Lvl2FirstScreen.route){
+            SecondScreen2(navController = navController)
         }
     }
     
@@ -93,10 +97,10 @@ fun Screen(navController: NavController) {
                 Spacer(modifier = Modifier.height(50.dp))
 
 //                androidx.compose.material.Button(onClick = {
-//                    navController.navigate("second_screen") },
+//                    navController.navigate("main_screen") },
 //                colors = ButtonDefaults.buttonColors(backgroundColor = Color.Cyan,
 //                    contentColor = Color.White)) {
-//                    Text(text = "Next")
+//                    Text(text = "refresh options")
 //                }
                // ToastBtn()
                 //Gifts()

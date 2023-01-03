@@ -6,5 +6,6 @@ sealed class Screen(val route:String){
     object ThirdScreen: Screen("third_screen")
     object FourthScreen: Screen("fourth_screen")
     object FifthScreen: Screen("fifth_screen")
+    object Lvl2FirstScreen: Screen("lvl2_first_screen")
 
 }

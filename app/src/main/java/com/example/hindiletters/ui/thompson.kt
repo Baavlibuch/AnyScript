@@ -7,7 +7,13 @@ fun generateRandomInt(min: Int, max: Int): Int {
 }
 
 fun generateRandomHindiLetter(): String {
-    val hindiLetters = "अआइईउऊऋऌऍऎएऐऑऒओऔकखगघङचछजझञटठडढणतथदधनपफबभमयरऱलळऴवशषसह"
+    val hindiLetters = "अआइईउऊएकखगघचजटठडतदधनपबमयरलवशसह"
+    val index = generateRandomInt(0, hindiLetters.length - 1)
+    return hindiLetters[index].toString()
+}
+
+fun generateRandomHindiLetter2(): String {
+    val hindiLetters = "ऋऌऍऎऐऑऒओऔङछझञढणथफभऱळऴष"
     val index = generateRandomInt(0, hindiLetters.length - 1)
     return hindiLetters[index].toString()
 }
