@@ -49,6 +49,6 @@ fun SecondScreen2(navController: NavController) {
     Column(modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
-        ProgressBar(navController=navController,"main_screen",0.5f,2)
+        ProgressBar(navController=navController,"compound_level_1",0.5f,2)
     }
 }

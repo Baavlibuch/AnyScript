@@ -6,40 +6,49 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-class DBHelper(context: Context) :
+class DBHelper(context: Context?) :
     SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     // below is the method for creating a database by a sqlite query
     override fun onCreate(db: SQLiteDatabase) {
         // below is a sqlite query, where column names
         // along with their data types is given
+//        val query = ("CREATE TABLE " + TABLE_NAME + " ("
+//                + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+//                LEVEL_COl + " TEXT," +
+//                LETTER_COL + " TEXT )")
         val query = ("CREATE TABLE " + TABLE_NAME + " ("
-                + ID_COL + " INTEGER PRIMARY KEY, " +
-                LEVEL_COl + " TEXT," +
-                LETTER_COL + " TEXT" + ")")
+                + ID_COL + " INTEGER PRIMARY KEY , "
+                + LEVEL_COl + " TEXT,"
+                + LETTER_COL + " TEXT)")
+val string="CREATE TABLE Letters( id  INTEGER PRIMARY KEY, level INTEGER, letters TEXT)"
 
         // we are calling sqlite
         // method for executing our query
-        db.execSQL(query)
+
+        db.execSQL(string)
     }
 
-    override fun onUpgrade(db: SQLiteDatabase, p1: Int, p2: Int) {
+    override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         // this method is to check if table already exists
-        db.execSQL("DROP TABLE IF EXISTS $TABLE_NAME")
-        onCreate(db)
+        if(newVersion>oldVersion){
+            db.execSQL(" DROP TABLE IF EXISTS $TABLE_NAME")
+            onCreate(db)
+        }
     }
 
     // This method is for adding data in our database
-    fun addName(level: Int, letter : String ){
+    fun addName(level: String?, letters: String? ){
 
         // below we are creating
         // a content values variable
         val values = ContentValues()
 
-        // we are inserting our values
-        // in the form of key-value pair
+        // we are inserting our values in the form of key-value pair
+        //values.put(ID_COL, index)
         values.put(LEVEL_COl, level)
-        values.put(LETTER_COL, letter)
+        values.put(LETTER_COL, letters)
+
 
         // here we are creating a
         // writable variable of
@@ -52,7 +61,7 @@ class DBHelper(context: Context) :
 
         // at last we are
         // closing our database
-        db.close()
+       db.close()
     }
 
     // below method is to get
@@ -74,22 +83,22 @@ class DBHelper(context: Context) :
         // here we have defined variables for our database
 
         // below is variable for database name
-        private val DATABASE_NAME = "Letters"
+        private const val DATABASE_NAME = "Letters"
 
         // below is the variable for database version
-        private val DATABASE_VERSION = 1
+        private const val DATABASE_VERSION = 1
 
         // below is the variable for table name
-        val TABLE_NAME = "letters_table"
+        private const val  TABLE_NAME = "Letters"
 
         // below is the variable for id column
-        val ID_COL = "index"
+       private const val  ID_COL = "index"
 
         // below is the variable for name column
-        val LEVEL_COl = "level"
+       private const val LEVEL_COl = "level"
 
         // below is the variable for age column
-        val LETTER_COL = "letters"
+        private const val LETTER_COL = "letters"
     }
 
     fun readCourses(): ArrayList<LetterModel>? {
@@ -108,9 +117,8 @@ class DBHelper(context: Context) :
                 // on below line we are adding the data from cursor to our array list.
                 courseModelArrayList.add(
                     LetterModel(
-                        cursorCourses.getInt(1),
-                        cursorCourses.getInt(2),
-                        cursorCourses.getString(3)
+                        cursorCourses.getString(1),
+                        cursorCourses.getString(2),
                     )
                 )
             } while (cursorCourses.moveToNext())

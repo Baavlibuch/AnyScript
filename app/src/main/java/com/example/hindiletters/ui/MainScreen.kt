@@ -1,6 +1,5 @@
 package com.example.hindiletters.ui
 
-import com.example.hindiletters.ui.Screen2
 import android.media.MediaPlayer
 import android.net.Uri
 import androidx.compose.animation.core.*
@@ -26,13 +25,17 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.hindiletters.R
+import com.example.hindiletters.compoundLetters.CompoundLvl1
+import com.example.hindiletters.compoundLetters.CompoundLvl2
+import com.example.hindiletters.database.Dta
+import com.example.hindiletters.database.FillData
 import com.example.hindiletters.secondLevel.SecondScreen2
 import com.example.hindiletters.ui.theme.HindiLettersTheme
 
- val randomHindiLetter= generateRandomHindiLetter()
+
+val randomHindiLetter= generateRandomHindiLetter()
 val randomHindiLetter1= generateRandomHindiLetter()
 
-val randomHindiLetters89 = generateRandomHindiLettersList(4)
 
 @Composable
 fun Navigation() {
@@ -56,6 +59,19 @@ fun Navigation() {
         composable(Screen.Lvl2FirstScreen.route){
             SecondScreen2(navController = navController)
         }
+        composable(Screen.DataSqlite.route){
+            FillData(navController = navController)
+        }
+        composable(Screen.DataSqlite2.route){
+           Dta(navController = navController)
+        }
+        composable(Screen.CompoundLvl1.route){
+            CompoundLvl1(navController=navController)
+        }
+        composable(Screen.CompoundLvl2.route){
+            CompoundLvl2(navController=navController)
+        }
+
     }
     
 }
@@ -92,7 +108,7 @@ fun Screen(navController: NavController) {
                     }, "अ",Color.Green, )
 
                 Spacer(modifier = Modifier.height(20.dp))
-             BtnClr(text = randomHindiLetters89)
+             BtnClr(text = randomHindiLetter)
               //  AnsButton1(animationState = animationState.value, color = Color(0xFF858182),"ऊ")
                    Spacer(modifier = Modifier.height(20.dp))
                 BtnClr(text = randomHindiLetter1)

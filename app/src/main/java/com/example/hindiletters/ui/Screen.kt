@@ -7,5 +7,9 @@ sealed class Screen(val route:String){
     object FourthScreen: Screen("fourth_screen")
     object FifthScreen: Screen("fifth_screen")
     object Lvl2FirstScreen: Screen("lvl2_first_screen")
+    object DataSqlite: Screen("data_screen")
+    object DataSqlite2: Screen("data_screen2")
+    object CompoundLvl1: Screen("compound_level_1")
+    object CompoundLvl2: Screen("compound_level_2")
 
 }

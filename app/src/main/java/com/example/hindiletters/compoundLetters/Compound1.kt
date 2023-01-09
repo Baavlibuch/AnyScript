@@ -1,4 +1,4 @@
-package com.example.hindiletters.ui
+package com.example.hindiletters.compoundLetters
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.*
@@ -8,11 +8,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.hindiletters.R
+import com.example.hindiletters.ui.*
 
-val randomHindiLetter4= generateRandomHindiLetter()
-val randomHindiLetter5= generateRandomHindiLetter()
+
+
+val randomCompoundLetter1=generateRandomHindiCompoundLetters(1)
+val randomCompoundLetter2=generateRandomHindiCompoundLetters(1)
 @Composable
-fun Screen2(navController: NavController) {
+fun CompoundLvl1(navController: NavController) {
     val animationState = remember { mutableStateOf(false) }
     var visible by remember { mutableStateOf(false) }
     BoxWithConstraints(contentAlignment = Alignment.TopStart,) {
@@ -31,23 +34,25 @@ fun Screen2(navController: NavController) {
                 .padding(12.dp),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally) {
-                BtnClr(text = randomHindiLetter5)
+                BtnClr(text = randomCompoundLetter1.toString().dropLast(1).drop(1))
+                Spacer(modifier = Modifier.height(20.dp))
+                BtnClr(text = randomCompoundLetter2.toString().dropLast(1).drop(1))
                 Spacer(modifier = Modifier.height(20.dp))
                 AnsButton(animationState =animationState.value,
                     onToggleAnimationState =
                     {animationState.value = !animationState.value
                         visible = !visible
-                    },"ट",Color.Green)
-                Spacer(modifier = Modifier.height(20.dp))
-               BtnClr(text = randomHindiLetter4)
+                    },"गौ", Color.Green)
                 Spacer(modifier = Modifier.height(50.dp))
-                Gifts(isGift = animationState.value,visible, R.drawable.giftbox)
+                Gifts(isGift = animationState.value, visible = visible, R.drawable.giftbox)
             }
         }
     }
     Column(modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
-        ProgressBar(navController=navController,"third_screen",0.1f,1)
+        ProgressBar(navController = navController,"compound_level_2",0.7f,3)
     }
 }
+
+

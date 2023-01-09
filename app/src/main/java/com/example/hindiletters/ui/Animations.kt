@@ -181,6 +181,8 @@ fun BtnClr(
 
 }
 
+
+
 @Composable
 fun Congratulations() {
     val infiniteTransition = rememberInfiniteTransition()

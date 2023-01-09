@@ -1,6 +1,6 @@
 package com.example.hindiletters.database
 data class LetterModel (
-    val index:Int,
-    val level:Int,
-    val letters:String
+    //var index:String,
+    var level:String,
+    var letters:String
         )
