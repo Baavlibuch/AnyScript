@@ -11,5 +11,6 @@ sealed class Screen(val route:String){
     object DataSqlite2: Screen("data_screen2")
     object CompoundLvl1: Screen("compound_level_1")
     object CompoundLvl2: Screen("compound_level_2")
+    object Canvas: Screen("canvas")
 
 }

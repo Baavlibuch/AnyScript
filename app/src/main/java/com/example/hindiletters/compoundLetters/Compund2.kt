@@ -50,7 +50,7 @@ fun CompoundLvl2(navController: NavController) {
     Column(modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally) {
-        ProgressBar(navController = navController,"main_screen",0.7f,3)
+        ProgressBar(navController = navController,"canvas",0.7f,3)
     }
 }
 

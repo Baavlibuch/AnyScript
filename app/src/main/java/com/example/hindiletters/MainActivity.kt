@@ -13,6 +13,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.hindiletters.canvas.CanvasDraw
 import com.example.hindiletters.database.Dta
 
 import com.example.hindiletters.ui.Gifts
@@ -33,8 +34,9 @@ class MainActivity : ComponentActivity(){
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background) {
-                    Navigation()
+                   Navigation()
                     //Dta()
+                    //CanvasDraw()
                 }
             }
         }

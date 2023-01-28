@@ -25,6 +25,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.hindiletters.R
+import com.example.hindiletters.canvas.CanvasDraw
 import com.example.hindiletters.compoundLetters.CompoundLvl1
 import com.example.hindiletters.compoundLetters.CompoundLvl2
 import com.example.hindiletters.database.Dta
@@ -70,6 +71,9 @@ fun Navigation() {
         }
         composable(Screen.CompoundLvl2.route){
             CompoundLvl2(navController=navController)
+        }
+        composable(Screen.Canvas.route){
+            CanvasDraw(navController=navController)
         }
 
     }
