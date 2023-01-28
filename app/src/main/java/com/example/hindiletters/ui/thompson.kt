@@ -16,21 +16,6 @@ fun generateRandomHindiLetter(): String {
     return hindiLetters[index].toString()
 }
 
-//for list
-fun generateRandomHindiLettersList(count: Int):String  {
-    val hindiLetters = "अआइईउऊएकखगघचजटठडतदधनपबमयरलवशसह"
-    return (0 until count).map { generateRandomInt(0, hindiLetters.length - 1) }.map { hindiLetters[it] }.toString()
-}
-
-
-
-fun generateRandomHindiLetterStrings(count: Int): List<String> {
-    val hindiLetters = "अआइईउऊऋऌऍऎएऐऑऒओऔकखगघङचछजझञटठडढणतथदधनपफबभमयरऱलळऴवशषसह"
-    return (0 until count).map { generateRandomInt(0, hindiLetters.length - 1) }
-        .map { hindiLetters[it].toString() }
-}
-
-
 
 
 // for level 2
@@ -41,11 +26,25 @@ fun generateRandomHindiLetter2(): String {
 }
 
 
+fun generateRandomHindiCompoundLetter(): String {
+    val hindiLetters = "रैज़ूविचुयोतृगौ"
+    val index = generateRandomInt(0, hindiLetters.length - 1)
+    return hindiLetters[index].toString()
+}
+
+//for compound letters
+fun generateRandomHindiCompoundLetters(count: Int): List<String> {
+    val hindiCompoundLetters = listOf(
+        "गौ", "ज़ू", "हॉ","पृि","चि","वी","चॉ","पॉ","मौ","लृ"
+    )
+    return (0 until count).map { generateRandomInt(0, hindiCompoundLetters.size - 1) }
+        .map { hindiCompoundLetters[it] }
+}
+
+
 fun main(){
 
-    print(generateRandomHindiLetter())
-    val count = 4
-    val randomHindiLetters = generateRandomHindiLetterStrings(count)
-    print(randomHindiLetters)
+    val rndLetters= generateRandomHindiCompoundLetters(1)
+    print(rndLetters)
 }
 //    val hindiLetters = "अआइईउऊएकखगघचजटठडतदधनपबमयरलवशसह"
