@@ -1,0 +1,57 @@
+package com.baavlibuch.anyscript.compoundLetters
+
+import androidx.compose.foundation.layout.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import com.baavlibuch.anyscript.ui.*
+import com.example.hindiletters.R
+
+
+val randomCompoundLetter1=generateRandomHindiCompoundLetters(1)
+val randomCompoundLetter2=generateRandomHindiCompoundLetters(1)
+@Composable
+fun CompoundLvl1(navController: NavController) {
+    val animationState = remember { mutableStateOf(false) }
+    var visible by remember { mutableStateOf(false) }
+    BoxWithConstraints(contentAlignment = Alignment.TopStart,) {
+        SnowFall(isRocketEnabled = animationState.value)
+        Rocket(isRocketEnabled = animationState.value,
+            maxWidth = maxWidth, maxHeight =maxHeight)
+//        Rocket(isRocketEnabled = animationState.value,
+//            maxWidth = 650.dp, maxHeight = 900.dp)
+        FireCracker(isRocketEnabled = animationState.value,
+            maxWidth = 125.dp, maxHeight = 900.dp)
+
+        Row {
+            Button((R.raw.sample))
+            Column(modifier = Modifier
+                .fillMaxWidth()
+                .padding(12.dp),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally) {
+                BtnClr(text = randomCompoundLetter1.toString().dropLast(1).drop(1))
+                Spacer(modifier = Modifier.height(20.dp))
+                BtnClr(text = randomCompoundLetter2.toString().dropLast(1).drop(1))
+                Spacer(modifier = Modifier.height(20.dp))
+                AnsButton(animationState =animationState.value,
+                    onToggleAnimationState =
+                    {animationState.value = !animationState.value
+                        visible = !visible
+                    },"गौ", Color.Green)
+                Spacer(modifier = Modifier.height(50.dp))
+                Gifts(isGift = animationState.value, visible = visible, R.drawable.giftbox)
+            }
+        }
+    }
+    Column(modifier = Modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally) {
+        ProgressBar(navController = navController,"compound_level_2",0.7f,3)
+    }
+}
+
+
